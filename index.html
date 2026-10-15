@@ -56,7 +56,7 @@ footer{border-top:1px solid var(--l);padding:24px 0;text-align:center;font-size:
 <section><div class="w">
 <h1>Make the list.<br><span>I'll fix it.</span></h1>
 <p class="lead">Got a honey-do list that keeps growing? Write it all down, send it to me, and I'll come knock out the whole thing in one visit. Serving St. Mary's County, MD.</p>
-<a class="btn" href="sms:+13012477471">Text Val</a><a class="btn o" href="tel:+13012477471">Call Val</a>
+<a class="btn" href="#request">Get a Free Quote</a><a class="btn o" href="sms:+13012477471">Text Val</a><a class="btn o" href="tel:+13012477471">Call Val</a>
 </div></section>
 
 <section class="alt"><div class="w">
@@ -87,12 +87,13 @@ footer{border-top:1px solid var(--l);padding:24px 0;text-align:center;font-size:
 </div></section>
 
 <section class="alt" id="request"><div class="w">
-<h2>Send your list</h2>
+<h2>Get a Free Quote</h2>
+<p>Send me your list and I&rsquo;ll get back to you with a fair price &mdash; no obligation.</p>
 <form id="req" onsubmit="return sendRequest(event)">
 <label for="n">Your name</label><input id="n" name="name" autocomplete="name" required>
 <label for="p">Phone number</label><input id="p" name="phone" type="tel" autocomplete="tel" required>
 <label for="l">Your list</label><textarea id="l" name="list" placeholder="1. Hang 3 pictures in the hallway&#10;2. Assemble a bookshelf&#10;3. Fix squeaky bedroom door" required></textarea>
-<div><button class="btn" type="submit" name="via" value="sms">Text my list</button><button class="btn o" type="submit" name="via" value="email">Email my list</button></div>
+<div><button class="btn" type="submit" name="via" value="sms">Text my list for a quote</button><button class="btn o" type="submit" name="via" value="email">Email my list for a quote</button></div>
 <p class="small">This opens your text or email app with your list filled in &mdash; just hit send.</p>
 </form>
 </div></section>
@@ -115,9 +116,9 @@ function sendRequest(e){
   var via=(e.submitter&&e.submitter.value)||'sms';
   var body="Name: "+f.name.value+"\nPhone: "+f.phone.value+"\n\nMy list:\n"+f.list.value;
   if(via==='email'){
-    window.location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Fix A List request from "+f.name.value)+"&body="+encodeURIComponent(body);
+    window.location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Fix A List quote request from "+f.name.value)+"&body="+encodeURIComponent(body);
   }else{
-    window.location.href="sms:"+PHONE+"?&body="+encodeURIComponent("Fix A List request\n"+body);
+    window.location.href="sms:"+PHONE+"?&body="+encodeURIComponent("Fix A List quote request\n"+body);
   }
   return false;
 }
